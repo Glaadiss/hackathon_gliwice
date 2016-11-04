@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :recrutations do
-    resources :companies do
+  resources :companies do
+    resources :recrutations do
       resources :notifications
     end
   end
