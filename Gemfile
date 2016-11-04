@@ -29,6 +29,7 @@ gem 'simple_form'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'letter_opener'
 gem 'paperclip', '~> 5.0.0'
+gem 'devise-bootstrap-views'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
