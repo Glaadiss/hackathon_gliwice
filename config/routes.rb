@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :notifications
-  resources :recrutations
-  resources :companies
+  resources :recrutations do
+    resources :companies do
+      resources :notifications
+    end
+  end
   resources :messages
   devise_for :users
   resources :jobs

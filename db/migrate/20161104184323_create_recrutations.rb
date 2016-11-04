@@ -7,7 +7,7 @@ class CreateRecrutations < ActiveRecord::Migration[5.0]
       t.text :offer
       t.text :nice_have
       t.text :additional
-
+      t.text :title
       t.timestamps
     end
   end
