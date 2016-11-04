@@ -1,2 +1,3 @@
 class RecrutationsController < ApplicationController
+
 end
