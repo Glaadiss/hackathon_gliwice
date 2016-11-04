@@ -1,11 +1,24 @@
-<%= @company.name %>
 
-
-
-<% @recrutations.each do |r| %>
-//todo add title
-<%= r.dependency %>
-<%= r.job.name %>
-<%= r.salary %>
-
-<% end %>
+<div class="col-md-6 well">
+  <h1><%= @company.name %></h1>
+  <h3><%= @company.description %></h3>
+  <h5>NIP: <%= @company.nip %></h5>
+  <h5>Adres firmy: <%= @company.address %></h5>
+  <input id="address" style="display:none;" data-address="<%= @company.address %>"/>
+</div>
+<div class="col-md-6">
+  <div id="map" style="height: 200px" data-map="<%=@company.map %>"></div>
+</div>
+  <% @recrutations.each do |r| %>
+<%# todo add title %>
+<div class="col-md-8 col-md-offset-2 well">
+  <div class="col-md-4">
+    <%= link_to r.title, company_recrutation_path(r.company_id, r.id) %><br>
+    <span style="color:green"><%= r.job.name %></span>
+  </div>
+  <div class="col-md-2 col-md-offset-4"><%= r.salary %></div>
+</div>
+  <% end %>
+<script src="geo.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL83WfzxmwshCPup5Hq0WGaNECnXpvxM4&callback=initMap">
+</script>
