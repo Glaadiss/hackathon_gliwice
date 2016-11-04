@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20161104194150) do
     t.text     "offer"
     t.text     "nice_have"
     t.text     "additional"
+    t.text     "title"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "company_id"

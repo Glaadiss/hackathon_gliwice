@@ -6,6 +6,6 @@ class AddReferences < ActiveRecord::Migration[5.0]
     add_reference :notifications, :user, index: true
     add_column :messages, :receiver_id, :integer
     add_column :messages, :sender_id, :integer
-    add_column :users , :company_id, :integer
+    add_column :users , :company_id, :integer, null: true
   end
 end
