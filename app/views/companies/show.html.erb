@@ -1,11 +1,20 @@
-<%= @company.name %>
+<div class="col-md-4 col-md-offset-4 well">
+  <h1><%= @company.name %></h1>
+  <h2><%= @company.description %></h2>
+  <p>NIP: <%= @company.nip %></p>
+  <p>Adres firmy: <%= @company.address %></p>
+</div>
 
 
 
-<% @recrutations.each do |r| %>
-//todo add title
-<%= r.dependency %>
-<%= r.job.name %>
-<%= r.salary %>
 
-<% end %>
+
+  <% @recrutations.each do |r| %>
+<%# todo add title %>
+<%= link_to r.dependency+r.job.name, recrutation_path(r.id), class: 'col-md-12 btn btn-primary' %>
+      <%= r.dependency %>
+      <%= r.job.name %>
+      <%= r.salary %>
+
+  <% end %>
+
