@@ -29,7 +29,7 @@ class RecrutationsController < ApplicationController
   private
 
   def get_company
-    @company = Company.find(params[:id])
+    @company = Company.find(params[:company_id])
   end
 
   def recrutations_params
