@@ -1,5 +1,4 @@
 class RecrutationsController < ApplicationController
-
   before_action :get_company
   def index
     @recrutations = @company.recrutations
@@ -30,7 +29,7 @@ class RecrutationsController < ApplicationController
   private
 
   def get_company
-    @company = Company.find(params[:id])
+    @company = Company.find(params[:company_id])
   end
 
   def recrutations_params
