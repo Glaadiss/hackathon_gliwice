@@ -8,19 +8,23 @@ class NotificationsController < ApplicationController
     @notification = @recrutation.notifications.new(notify_params)
     @notification.user = current_user
     if @notification.save
-      
+      redirect_to @notification
+    else
+      render 'new'
+    end
   end
 
   def show
-
+    @notification = Notification.find(params[:id])
   end
 
   def destroy
-
+    Notification.destroy(params[:id])
+    redirect_to @recrutation
   end
 
   def index
-
+    @notifications = @recrutation.notifications
   end
 
   private
