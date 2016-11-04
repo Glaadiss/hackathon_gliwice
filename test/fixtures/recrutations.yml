@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  job: one
+  dependency: MyText
+  salary: MyString
+  description: MyText
+  offer: MyText
+  nice_have: MyText
+  additional: MyText
+
+two:
+  company: two
+  job: two
+  dependency: MyText
+  salary: MyString
+  description: MyText
+  offer: MyText
+  nice_have: MyText
+  additional: MyText
