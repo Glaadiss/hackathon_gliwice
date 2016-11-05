@@ -6,6 +6,8 @@ class RecrutationsController < ApplicationController
 
   def show
     @recrutation = Recrutation.find(params[:id])
+    @notification = Notification.new
+    @notifications = @recrutation.notifications
   end
 
   def new

@@ -1,0 +1,10 @@
+<% if @notification.recrutation.company.id == current_user.company_id %>
+    <div class="row">
+      <div class="jumbotron text-center">
+        <h1><%= @notification.user.full_name %></h1>
+        <h2><%= @notification.recrutation.job.name %>.</h2>
+      </div>
+    </div>
+<% elsif current_user.id == @notification.user_id %>
+
+<% end %>

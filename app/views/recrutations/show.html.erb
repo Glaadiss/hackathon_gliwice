@@ -1,1 +1,42 @@
-Show
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron text-center">
+      <h2><%= @recrutation.title %></h2>
+      <h3><%= @recrutation.job.name %></h3>
+      <h3><%= @recrutation.description %></h3>
+      <h3><%= @recrutation.dependency %></h3>
+      <h5><%= @recrutation.offer %></h5>
+      <h5><%= @recrutation.nice_have %></h5>
+      <h5><%= @recrutation.additional %></h5>
+
+      <h3></h3>
+      <h5>Zarobki: <%= @recrutation.salary %></h5>
+    </div>
+  </div>
+</div>
+
+<% if current_user.company_id == @recrutation.company_id %>
+  <% @notifications.each do |n| %>
+    <div class="col-md-12 well">
+      <div class="col-md-4">
+        <%= link_to n.user.full_name, company_recrutation_notification_path(@recrutation.company_id, @recrutation.id, n.id)  %>
+      </div>
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-3 col-md-offset-1">
+        <%= n.created_at %>
+      </div>
+    </div>
+  <% end %>
+<%  end  %>
+
+<% if current_user.role == 0 %>
+    <div class="col-md-4 col-md-offset-4 well text-center" style="border-radius:2px;">
+      <%= simple_form_for @notification, method: :post, url: company_recrutation_notifications_path(@recrutation.company_id, @recrutation.id), html: { multipart: true } do |f| %>
+          <label class="control-label">Wybierz CV:</label>
+          <%= f.file_field :document %>
+          <%= f.button :submit, "Aplikuj", class: 'btn btn-success btn-lg' %>
+      <% end %>
+    </div>
+<% end %>

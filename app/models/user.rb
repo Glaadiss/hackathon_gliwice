@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def messages
     received_messages + sended_messages
   end
+
+  def full_name
+    "#{firstname} #{lastname}"
+  end
 end
