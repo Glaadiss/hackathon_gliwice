@@ -8,6 +8,7 @@ class RecrutationsController < ApplicationController
     @recrutation = Recrutation.find(params[:id])
     @notification = Notification.new
     @notifications = @recrutation.notifications.where('status' => 0)
+    @my_notification = current_user.notifications.where('recrutation_id' => @recrutation.id).count
   end
 
   def new
@@ -21,7 +22,8 @@ class RecrutationsController < ApplicationController
 
   def create
     @recrutation = @company.recrutations.new(recrutations_params)
-    if @recrutation.save
+    @recrutation.job_id = 1
+    if @recrutation.save!
       redirect_to @company
     else
       render 'new'

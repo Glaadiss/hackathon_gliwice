@@ -51,10 +51,9 @@ ActiveRecord::Schema.define(version: 20161105033212) do
     t.string   "nip"
     t.string   "map"
     t.string   "address"
-    t.text     "description"
+    t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id"
   end
 
   create_table "jobs", force: :cascade do |t|

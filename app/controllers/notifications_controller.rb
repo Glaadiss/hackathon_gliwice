@@ -33,7 +33,7 @@ class NotificationsController < ApplicationController
 
   def refuse_notification
     @notification = Notification.find(params[:id])
-    @notification.update(status: 0)
+    @notification.update(status: 2)
     redirect_to company_recrutation_path(@notification.recrutation.company.id, @notification.recrutation.id)
   end
 

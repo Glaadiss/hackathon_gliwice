@@ -31,7 +31,7 @@
   <% end %>
 <%  end  %>
 
-<% if current_user.role == 0 %>
+<% if current_user.role == 0 && @my_notification < 1%>
     <div class="col-md-4 col-md-offset-4 well text-center" style="border-radius:2px;">
       <%= simple_form_for @notification, method: :post, url: company_recrutation_notifications_path(@recrutation.company_id, @recrutation.id), html: { multipart: true } do |f| %>
           <label class="control-label">Wybierz CV:</label>
@@ -39,4 +39,8 @@
           <%= f.button :submit, "Aplikuj", class: 'btn btn-success btn-lg' %>
       <% end %>
     </div>
+<% end %>
+
+<% if @my_notification >= 1%>
+Już wysłałeś podanie w tej rekrutacji.
 <% end %>
