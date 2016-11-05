@@ -21,7 +21,11 @@
     <span> Stanowisko: </span> <%= link_to r.title, company_recrutation_path(r.company_id, r.id) %>  <br>
     <span style="color:green"> Rodzaj zatrudnienia: <%= r.job.name %></span>
   </div>
-  <div class="col-md-2 col-md-offset-4"> Wynagrodzenie: <%= r.salary %> </div>
+  <div class="col-md-4"> Wynagrodzenie: <%= r.salary %> </div>
+  <div class="col-md-4" style="text-align: center"> <%= link_to company_recrutation_path(@company, r), method: :delete do %>
+      <i class="fa fa-trash fa-3x" aria-hidden="true"></i>
+   <% end %>
+    </div>
 </div>
   <% end %>
 <script src="geo.js"></script>
