@@ -1,0 +1,21 @@
+<h1> Zawody pasujące do Ciebie</h1>
+
+<table class = "table table-striped">
+  <thead>
+    <tr>
+      <th> Tytuł </th>
+      <th> Nazwa firmy </th>
+      <th> Wynagrodzenie </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recrutations.each do |rec| %>
+      <tr>
+        <td> <%= rec.title %> </td>
+        <td> <%= rec.company.name %> </td>
+        <td> <%= rec.salary %> </td>
+        <td><%= link_to 'Pokaż szczegóły', company_recrutation_path(rec.company,rec), class: 'btn btn-primary btn-xs' %> </td>
+      </tr>
+    <% end %>
+  <tbody>
+</table>

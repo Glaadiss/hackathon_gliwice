@@ -1,0 +1,8 @@
+<h1> Wyszukaj swoją wymarzoną pracę! </h1>
+<%= form_tag '/search', method: :get do %>
+  <hr>
+  <div class="row">
+    <div class="col-md-4"> <%= text_field_tag 'name',nil,  class: 'form-control input-large' %> </div>
+    <div class="col-md-2"> <%= submit_tag 'Wyślij', class: 'btn btn-success btn-lg' %> </div>
+  </div>
+<% end %>

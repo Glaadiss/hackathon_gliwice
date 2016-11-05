@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/search/find', to: 'search#find'
+  get '/search', to: 'search#index'
   root 'welcome#index'
   resources :companies do
     resources :recrutations do
