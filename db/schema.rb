@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20161104194150) do
     t.string   "nip"
     t.string   "map"
     t.string   "address"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

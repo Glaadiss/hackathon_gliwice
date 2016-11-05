@@ -19,7 +19,6 @@ class CompaniesController < ApplicationController
   end
 
   def show
-
     @recrutations = @company.recrutations
   end
 
