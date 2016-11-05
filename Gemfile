@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 #  Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use postgresql as the database for Active Record
@@ -11,6 +12,8 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+gem 'font-awesome-sass'
+
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

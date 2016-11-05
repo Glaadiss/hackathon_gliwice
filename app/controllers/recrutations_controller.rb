@@ -17,6 +17,7 @@ class RecrutationsController < ApplicationController
 
   def destroy
     Recrutation.destroy(params[:id])
+    flash[:notice] = "Usunięto ogłoszenie"
     redirect_to @company
   end
 
