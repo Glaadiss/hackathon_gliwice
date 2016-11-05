@@ -4,15 +4,23 @@
 <strong> <p class ="lead"> Email: </strong> <%= @user.email %> </p>
 
 <%= link_to "Edytuj swój profil", edit_user_registration_path(@user), class: 'btn btn-success' %>
-<% if @companies.exists? %>
-
-<% @companies.each do |e| %>
-<%= e.company.name %>
-<%= e.company.nip %>
-
-<% end %>
-
-<% end %>
-
+<br>
+<br>
+<table class="table">
+  <thead>
+    <th>Nazwa firmy</th>
+    <th>NIP </th>
+    <th>Stan rekturacji</th>
+  </thead>
+  <tbody>
+    <% @notifications.each do |e| %>
+  <tr>
+    <td><%= e.recrutation.company.name %></td>
+    <td><%= e.recrutation.company.nip %></td>
+    <td><%= status(e.status) %></td>
+  </tr>
+    <% end %>
+  </tbody>
+</table>
 <br>
 <br>
