@@ -1,4 +1,5 @@
-<h1> Zawody pasujące do Ciebie</h1>
+<h3> Zawody pasujące do Ciebie</h3>
+<br>
 
 <table class = "table table-striped">
   <thead>
@@ -14,8 +15,10 @@
         <td> <%= rec.title %> </td>
         <td> <%= rec.company.name %> </td>
         <td> <%= rec.salary %> </td>
-        <td><%= link_to 'Pokaż szczegóły', company_recrutation_path(rec.company,rec), class: 'btn btn-primary btn-xs' %> </td>
+        <td> <%= link_to 'Pokaż szczegóły', company_recrutation_path(rec.company,rec), class: 'btn btn-primary btn-xs' %> </td>
       </tr>
     <% end %>
   <tbody>
 </table>
+
+<%= render partial: 'finder' %>
