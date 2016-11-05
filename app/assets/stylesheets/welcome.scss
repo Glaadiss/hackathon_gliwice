@@ -205,3 +205,34 @@ p.copyright {
     }
   }
 }
+
+.kurde {
+  background-image: url("http://hdimagesnew.com/wp-content/uploads/2015/11/Business-Backgrounds-HD-2.jpg");
+  .kurde_bela {
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 60px;
+    background-color: rgba(100, 100, 100, 0.8);
+    li {
+      list-style-type: none;
+    }
+    h1 {
+      line-height: 23px;
+    }
+    h4 {
+      line-height: 23px;
+    }
+  }
+}
+
+.wgraj_cv {
+  margin-bottom: 20px;
+}
+.button-cv {
+  margin: 0 auto;
+}
+.aplikuj {
+  margin-top: 15px;
+}
