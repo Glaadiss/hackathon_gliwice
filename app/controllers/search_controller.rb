@@ -6,4 +6,10 @@ class SearchController < ApplicationController
     @job = Job.where("name like ?", "%#{params[:name]}%").first
     @recrutations = @job.present? ? @job.recrutations : []
   end
+
+  def search
+    @job = Job.where("name like ?", "%#{params[:name]}%").first
+    @recrutations = @job.present? ? @job.recrutations : []
+    render :layout => false
+  end
 end

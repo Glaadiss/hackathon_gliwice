@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get '/search/find', to: 'search#find'
   get '/search', to: 'search#index'
+  get '/search/search', to: 'search#search'
   root 'welcome#index'
   resources :companies do
     resources :recrutations do

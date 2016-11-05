@@ -1,7 +1,7 @@
 <%= form_tag '/search', method: :get do %>
   <div class="row">
-    <div class="col-md-4"> <%= text_field_tag 'name',nil,  class: 'form-control input-large', placeholder: "Wyszukaj" %> </div>
-    <div class="col-md-2"> <%= submit_tag 'Wyślij', class: 'btn btn-success btn-lg' %> </div>
+    <div class="col-md-4"> <%= text_field_tag 'name',nil,  class: 'form-control input-large', placeholder: "Wyszukaj", id: 'ajax' %> </div>
+    <div class="col-md-2"> <%= submit_tag 'Wyślij', class: 'btn btn-success btn-lg', id: 'submit' %> </div>
   </div>
 <% end %>
   <hr>
