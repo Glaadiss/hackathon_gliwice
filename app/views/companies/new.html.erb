@@ -13,7 +13,7 @@
     padding: 0;
   }
   #floating-panel {
-    position: absolute;
+
     top: 10px;
     left: 25%;
     z-index: 5;
@@ -32,15 +32,17 @@
   <input id="submit" type="button" value="Znajdź">
 </div>
 <div id="map" style="height:300px;"></div>
+<div style="margin-top:30px;">
+    <%= simple_form_for @company do |f| %>
+    <%= f.input :name, label: "Nazwa firmy" %>
+      <%= f.input :nip, label: "Numer identyfikacji podatkowej (NIP)" %>
+      <%= f.input :map, as: :hidden %>
+      <%= f.input :address, label: "Podaj adres" %>
+      <%= f.input :description, label: "Czym się zajmuje Twoja firma?" %>
+      <%= f.button :submit, "Dodaj firmę"%>
+  <% end %>
+</div>
 
-  <%= simple_form_for @company do |f| %>
-  <%= f.input :name, label: "Nazwa firmy" %>
-  <%= f.input :nip, label: "Numer identyfikacji podatkowej (NIP)" %>
-  <%= f.input :map, as: :hidden %>
-  <%= f.input :address, label: "Podaj adres" %>
-  <%= f.input :description, label: "Czym się zajmuje Twoja firma?" %>
-  <%= f.button :submit, "Dodaj firmę"%>
-<% end %>
 <br>
 <script>
   function initMap() {
