@@ -1,15 +1,14 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="jumbotron text-center">
+    <div class="jumbotron">
       <h2><%= @recrutation.title %></h2>
       <h3><%= @recrutation.job.name %></h3>
-      <h3><%= @recrutation.description %></h3>
-      <h3><%= @recrutation.dependency %></h3>
-      <h5><%= @recrutation.offer %></h5>
-      <h5><%= @recrutation.nice_have %></h5>
+      <h3><%= @recrutation.description%></h3>
+      <h3><%= @recrutation.dependency.html_safe %></h3>
+      <h5><%= @recrutation.offer.html_safe %></h5>
+      <h5><%= @recrutation.nice_have.html_safe %></h5>
       <h5><%= @recrutation.additional %></h5>
-
-      <h3></h3>
+    <h3></h3>
       <h5>Zarobki: <%= @recrutation.salary %></h5>
     </div>
   </div>

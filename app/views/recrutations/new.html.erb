@@ -93,13 +93,13 @@
     });
 
     $('form').submit(function(){
-      $('#salary').val( $('#salary1').val() + $('#salary1').val() )
+      $('#salary').val( $('#salary1').val() + ' - ' +  $('#salary2').val() )
       var dep = $('#dependency');
       var offer = $('#offer');
       var nice = $('#nice_have');
       $('.dependency').each(function(){ dep.val( dep.val() + '<li>' + $(this).val() + '</li>' ) });
-      $('.dependency').each(function(){ offer.val( offer.val() + '<li>' + $(this).val() + '</li>' ) });
-      $('.dependency').each(function(){ nice.val( nice.val() + '<li>' + $(this).val() + '</li>' ) });
+      $('.offer').each(function(){ offer.val( offer.val() + '<li>' + $(this).val() + '</li>' ) });
+      $('.nice_have').each(function(){ nice.val( nice.val() + '<li>' + $(this).val() + '</li>' ) });
     })
 
   })
