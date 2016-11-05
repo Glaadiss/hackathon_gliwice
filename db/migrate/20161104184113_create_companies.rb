@@ -5,7 +5,7 @@ class CreateCompanies < ActiveRecord::Migration[5.0]
       t.string :nip
       t.string :map
       t.string :address
-      t.string :description
+      t.text :description
 
       t.timestamps
     end
