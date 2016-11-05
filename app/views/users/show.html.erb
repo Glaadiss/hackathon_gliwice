@@ -4,5 +4,15 @@
 <strong> <p class ="lead"> Email: </strong> <%= @user.email %> </p>
 
 <%= link_to "Edytuj swój profil", edit_user_registration_path(@user), class: 'btn btn-success' %>
+<% if @companies.exists? %>
+
+<% @companies.each do |e| %>
+<%= e.company.name %>
+<%= e.company.nip %>
+
+<% end %>
+
+<% end %>
+
 <br>
 <br>
