@@ -2,6 +2,19 @@
   <div class="jumbotron text-center">
     <h1><%= @notification.user.full_name %></h1>
     <h2><%= @notification.recrutation.job.name %>.</h2>
+    <% if @notification.status == 0 %>
+      <div class="btn btn-default">
+        Status: Oczekujące
+      </div>
+        <% elsif @notification.status == 1 %>
+      <div class="btn btn-success">
+        Status: Zaakceptowane
+      </div>
+      <% else %>
+      <div class="btn btn-danger">
+        Status: Odrzucone
+      </div>
+    <%end %>
   </div>
 </div>
 
