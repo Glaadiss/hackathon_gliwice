@@ -1,5 +1,5 @@
 function initMap() {
-    var cords = $("#map").attr('data-map').split(' ');
+    var cords = $("#map").attr('data-map').split(', ');
     var chicago = new google.maps.LatLng(parseFloat(cords[0]), parseFloat(cords[1]));
 
     var map = new google.maps.Map(document.getElementById('map'), {
