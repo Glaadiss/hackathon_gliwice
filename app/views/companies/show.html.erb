@@ -21,7 +21,9 @@
   <div class="col-md-2 col-md-offset-4"><%= r.salary %> </div>
 </div>
   <% end %>
-<%= link_to "Dodaj ofertę pracy", new_company_recrutation_path(@company.id), class: 'btn btn-primary' %>
+<% if current_user.company_id == @company.id %>
+  <%= link_to "Dodaj ofertę pracy", new_company_recrutation_path(@company.id), class: 'btn btn-primary' %>
+<% end %>
 <script src="geo.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL83WfzxmwshCPup5Hq0WGaNECnXpvxM4&callback=initMap">
 </script>
