@@ -1,0 +1,106 @@
+<%= form_tag company_recrutations_path(@company) do  %>
+    <h4>Tytuł:</h4>
+    <div class="row">
+      <div class="col-md-8">
+        <%= text_field_tag  'recrutation[title]', nil, class: 'form-control', placeholder: 'Tytuł'%>
+      </div>
+    </div>
+    <hr>
+    <h4>Opis:</h4>
+    <div class="row">
+      <div class="col-md-8">
+        <%= text_area_tag  'recrutation[description]', nil, class: 'form-control', placeholder: 'Opis'%>
+      </div>
+    </div>
+    <hr>
+    <h4>Wynagrodzenie:</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <%= text_field nil, nil, class: 'form-control', id: 'salary1', placeholder: 'Minimalne'%>
+      </div>
+      <div class="col-md-4">
+        <%= text_field nil, nil, class: 'form-control', id: 'salary2', placeholder: 'Maksymalne'%>
+      </div>
+      <%= hidden_field_tag 'recrutation[salary]', nil, id:'salary' %>
+    </div>
+    <hr>
+    <h4>Wymagania:</h4>
+    <div class="row dep">
+      <%= hidden_field_tag 'recrutation[dependency]', nil, id:'dependency' %>
+      <div class="col-md-7">
+        <div class="row">
+          <input type="text" class='form-control dependency' placeholder="Wymaganie">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="btn btn-success" id="add_dependency"> Nowe pole</div>
+      </div>
+    </div>
+    <hr>
+    <h4>Oferujemy:</h4>
+    <div class="row off">
+      <%= hidden_field_tag 'recrutation[offer]', nil, id:'offer' %>
+      <div class="col-md-7">
+        <div class="row">
+          <input type="text" class='form-control offer' placeholder="Marchewka">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="btn btn-success" id="add_offer"> Nowe pole</div>
+      </div>
+    </div>
+    <hr>
+    <h4>Mile widziane:</h4>
+    <div class="row nice">
+      <%= hidden_field_tag 'recrutation[nice_have]', nil, id:'nice_have' %>
+      <div class="col-md-7">
+        <div class="row">
+          <input type="text" class='form-control nice_have' placeholder="Mile widziane">
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="btn btn-success" id="add_nice"> Nowe pole</div>
+      </div>
+    </div>
+    <hr>
+    <h4>Dodatkowe informacje:</h4>
+    <div class="row">
+      <div class="col-md-8">
+        <%= text_area_tag 'recrutation[additional]', nil, class: 'form-control', placeholder: 'Dodatkowe'%>
+      </div>
+    </div>
+    <hr>
+  <%= submit_tag 'Wyślij', class: 'btn btn-success' %>
+<% end %>
+
+
+<script>
+  $(document).on('turbolinks:load', function(){
+    var new_dependency = String($('.dep').find('.col-md-7').html());
+    var new_offer = String($('.off').find('.col-md-7').html());
+    var new_nice = String($('.nice').find('.col-md-7').html());
+
+    $('#add_dependency').click(function(){
+      $('.dep .col-md-7').append( '<br>' + new_dependency);
+    });
+
+    $('#add_offer').click(function(){
+      $('.off .col-md-7').append( '<br>' + new_offer);
+    });
+
+    $('#add_nice').click(function(){
+      $('.nice .col-md-7').append( '<br>' + new_nice);
+    });
+
+    $('form').submit(function(){
+      $('#salary').val( $('#salary1').val() + $('#salary1').val() )
+      var dep = $('#dependency');
+      var offer = $('#offer');
+      var nice = $('#nice_have');
+      $('.dependency').each(function(){ dep.val( dep.val() + '<li>' + $(this).val() + '</li>' ) });
+      $('.dependency').each(function(){ offer.val( offer.val() + '<li>' + $(this).val() + '</li>' ) });
+      $('.dependency').each(function(){ nice.val( nice.val() + '<li>' + $(this).val() + '</li>' ) });
+    })
+
+  })
+</script>

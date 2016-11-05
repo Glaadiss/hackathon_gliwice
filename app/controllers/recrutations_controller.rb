@@ -19,7 +19,8 @@ class RecrutationsController < ApplicationController
 
   def create
     @recrutation = @company.recrutations.new(recrutations_params)
-    if @recrutation.save
+    @recrutation.job_id = 1
+    if @recrutation.save!
       redirect_to @company
     else
       render 'new'
