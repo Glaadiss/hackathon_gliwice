@@ -6,3 +6,21 @@
 <%= link_to "Edytuj swój profil", edit_user_registration_path(@user), class: 'btn btn-success' %>
 <br>
 <br>
+<table class="table">
+  <thead>
+    <th>Nazwa firmy</th>
+    <th>NIP </th>
+    <th>Stan rekturacji</th>
+  </thead>
+  <tbody>
+    <% @notifications.each do |e| %>
+  <tr>
+    <td><%= e.recrutation.company.name %></td>
+    <td><%= e.recrutation.company.nip %></td>
+    <td><%= status(e.status) %></td>
+  </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br>
