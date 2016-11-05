@@ -8,6 +8,9 @@
   </head>
 
   <body>
+  Twoje podanie o nazwie <%= @notification.recrutation.title %> zmieniło status na  <%= @notification.status == 1 ? 'zaakceptowany.' : 'odrzucony.' %>
+  Życzymy miłego dnia
+
     <%= yield %>
   </body>
 </html>

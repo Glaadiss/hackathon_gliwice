@@ -22,7 +22,8 @@ class RecrutationsController < ApplicationController
 
   def create
     @recrutation = @company.recrutations.new(recrutations_params)
-    @recrutation.job_id = Job.find_by_name(params[:job]).try(:id)
+    job = Job.find_or_create_by(name: params[:job])
+    @recrutation.job_id = job.id
     if @recrutation.save!
       redirect_to @company
     else
