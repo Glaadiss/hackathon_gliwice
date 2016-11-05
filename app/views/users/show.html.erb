@@ -1,0 +1,8 @@
+<h2> Dane Twojego profilu </h2>
+<strong> <p class ="lead"> Imię: </strong> <%= @user.firstname %> </p>
+<strong> <p class ="lead"> Nazwisko: </strong> <%= @user.lastname %> </p>
+<strong> <p class ="lead"> Email: </strong> <%= @user.email %> </p>
+
+<%= link_to "Edytuj swój profil", edit_user_registration_path(@user), class: 'btn btn-success' %>
+<br>
+<br>

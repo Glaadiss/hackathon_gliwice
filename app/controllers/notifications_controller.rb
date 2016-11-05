@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
-  before_action :get_recrutation_company
+  before_action :get_recrutation_company, except: [:accept_notification, :refuse_notification]
+
   def new
     @notification = @recrutation.notifications.new
   end
@@ -7,8 +8,9 @@ class NotificationsController < ApplicationController
   def create
     @notification = @recrutation.notifications.new(notify_params)
     @notification.user = current_user
+    @notification.status = 0
     if @notification.save
-      redirect_to @notification
+      redirect_to company_recrutation_notification_path(params[:company_id], params[:recrutation_id], @notification.id)
     else
       render 'new'
     end
@@ -23,6 +25,18 @@ class NotificationsController < ApplicationController
     redirect_to @recrutation
   end
 
+  def accept_notification
+    @notification = Notification.find(params[:id])
+    @notification.update(status: 1)
+    redirect_to company_recrutation_path(@notification.recrutation.company.id, @notification.recrutation.id)
+  end
+
+  def refuse_notification
+    @notification = Notification.find(params[:id])
+    @notification.update(status: 2)
+    redirect_to company_recrutation_path(@notification.recrutation.company.id, @notification.recrutation.id)
+  end
+
   def index
     @notifications = @recrutation.notifications
   end
@@ -30,7 +44,7 @@ class NotificationsController < ApplicationController
   private
 
   def notify_params
-    params.require(:notification).permit(:attachment)
+    params.require(:notification).permit(:document)
   end
   def get_recrutation_company
     @company = Company.find(params[:company_id])

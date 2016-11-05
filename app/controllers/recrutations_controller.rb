@@ -6,6 +6,9 @@ class RecrutationsController < ApplicationController
 
   def show
     @recrutation = Recrutation.find(params[:id])
+    @notification = Notification.new
+    @notifications = @recrutation.notifications.where('status' => 0)
+    @my_notification = current_user.notifications.where('recrutation_id' => @recrutation.id).count
   end
 
   def new

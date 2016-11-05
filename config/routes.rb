@@ -5,10 +5,13 @@ Rails.application.routes.draw do
   resources :companies do
     resources :recrutations do
       resources :notifications
-    end
+      end
   end
+  get 'accept_notification/:id', to: 'notifications#accept_notification'
+  get 'refuse_notification/:id', to: 'notifications#refuse_notification'
   resources :messages
   devise_for :users, controllers: { registrations: "registrations" }
   resources :jobs
+  resources :users, only: [:show, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

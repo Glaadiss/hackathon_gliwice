@@ -33,19 +33,12 @@
 </div>
 <div id="map" style="height:300px;"></div>
 <div style="margin-top:30px;">
-
     <%= simple_form_for @company do |f| %>
-<<<<<<< HEAD
       <%= f.input :name, label: "Nazwa firmy" %>
-      <%= f.input :nip, label: "Numer identyfikacji podatkowej (NIP)" %>
       <%= f.input :map, as: :hidden, required: true %>
-=======
       <%= f.error_notification %>
-      <%= f.input :name, label: "Nazwa firmy" %>
       <%= f.input :nip, label: "Numer identyfikacji podatkowej (NIP)" %>
-      <%= f.input :map, as: :hidden, required: true %>
       <%= f.error :map, error: 'Musisz wybrać lokalizację' %>
->>>>>>> 8f2b62ff1bb75d13f2847e9a67ed2abac61c1e7a
       <%= f.input :address, label: "Podaj adres" %>
       <%= f.input :description, label: "Czym się zajmuje Twoja firma?" %>
       <%= f.button :submit, "Dodaj firmę"%>

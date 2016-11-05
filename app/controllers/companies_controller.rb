@@ -11,7 +11,9 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(companies_params)
+    @company.user_id = current_user.id
     if @company.save
+      current_user.update(company_id: @company.id)
       redirect_to @company
     else
       render 'new'

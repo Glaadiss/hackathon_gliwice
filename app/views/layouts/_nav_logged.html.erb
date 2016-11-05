@@ -13,9 +13,28 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                  <li>
+                      <%= link_to "Ustawienia profilu", user_path(current_user.id) %>
+                  </li>
+                  <% if current_user.role == 1 %>
+                  <li>
+                    <% if current_user.company_id %>
+                      <%= link_to "Twoja firma", company_path(current_user.company_id) %>
+                    <% else %>
+                      <%= link_to "Twoja firma", new_company_path %>
+                    <% end %>
+                  </li>
+                  <li>
+                      <%= link_to "Zalogowany jako PRACODAWCA" + " " + "(" +  current_user.email + ")", "#" %>
+                  </li>
+                  <% else %>
+                  <li>
+                    <%= link_to "Zalogowany jako PRACOWNIK" + " " + "(" +  current_user.email + ")", "#" %>
+                  </li>
+                  <% end %>
+                  <li>
                     <%= link_to('Wyloguj się!', destroy_user_session_path, :method => :delete) %>
-                </li>
+                  </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
