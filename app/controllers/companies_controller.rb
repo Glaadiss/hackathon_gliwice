@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
   end
-  
+
   def create
     @company = Company.new(companies_params)
     if @company.save
@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
   private
 
   def companies_params
-    params.require(:company).permit(:name, :nip, :map, :address)
+    params.require(:company).permit(:name, :nip, :map, :address, :description)
   end
 
   def find_company
