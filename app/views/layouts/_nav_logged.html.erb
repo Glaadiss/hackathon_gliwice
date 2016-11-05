@@ -18,6 +18,13 @@
                   </li>
                   <% if current_user.role == 1 %>
                   <li>
+                    <% if current_user.company_id %>
+                      <%= link_to "Twoja firma", company_path(current_user.company_id) %>
+                    <% else %>
+                      <%= link_to "Twoja firma", new_company_path %>
+                    <% end %>
+                  </li>
+                  <li>
                       <%= link_to "Zalogowany jako PRACODAWCA" + " " + "(" +  current_user.email + ")", "#" %>
                   </li>
                   <% else %>
