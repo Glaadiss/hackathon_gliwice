@@ -8,10 +8,12 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
   end
-  
+
   def create
     @company = Company.new(companies_params)
+    @company.user_id = current_user.id
     if @company.save
+      current_user.update(company_id: @company.id)
       redirect_to @company
     else
       render 'new'
@@ -19,14 +21,13 @@ class CompaniesController < ApplicationController
   end
 
   def show
-
     @recrutations = @company.recrutations
   end
 
   private
 
   def companies_params
-    params.require(:company).permit(:name, :nip, :map, :address)
+    params.require(:company).permit(:name, :nip, :map, :address, :description)
   end
 
   def find_company
