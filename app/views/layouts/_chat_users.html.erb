@@ -1,8 +1,11 @@
+<h4 style="text-align:center"> Czat </h4>
+<div class="hidef">
 <% User.where.not(id: current_user.id).each do |d|%>
   <%= link_to messages_path(receiver_id: d.id)  do %>
     <div class="client">
       <span class="glyphicon glyphicon-envelope glyph" aria-hidden="true"></span>
-      <%= d.full_name%>
+      <%= d.full_name %>
     </div>
   <% end %>
 <% end %>
+</div>
