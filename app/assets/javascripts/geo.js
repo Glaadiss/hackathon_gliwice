@@ -4,7 +4,7 @@ function initMap() {
 
     var map = new google.maps.Map(document.getElementById('map'), {
         center: chicago,
-        zoom: 3
+        zoom: 17
     });
 
     var coordInfoWindow = new google.maps.InfoWindow();
