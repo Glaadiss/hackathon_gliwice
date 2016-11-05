@@ -7,5 +7,6 @@ class AddReferences < ActiveRecord::Migration[5.0]
     add_column :messages, :receiver_id, :integer
     add_column :messages, :sender_id, :integer
     add_column :users , :company_id, :integer, null: true
+    add_column :companies, :user_id, :integer, null: true
   end
 end
