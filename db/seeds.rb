@@ -11,3 +11,4 @@ Company.create( name: 'Starred', nip: '32131', map: '12331 123123', address: 'ul
 Recrutation.create!( title: 'cos tam co', dependency: ' qwe qe', job_id: Job.first.id, company_id: Company.first.id )
 User.create(email: 'qwe@gmail.com', firstname:'qwe', lastname: 'zaq', role: 0, password: '123456' )
 User.create(email: 'ade@gmail.com', firstname:'qwe', lastname: 'zaq', role: 1, password: '123456', company_id: Company.first.id )
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

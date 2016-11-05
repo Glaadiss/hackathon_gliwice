@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get '/search/find', to: 'search#find'
   get '/search', to: 'search#index'
   root 'welcome#index'
