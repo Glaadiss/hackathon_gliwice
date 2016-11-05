@@ -28,6 +28,7 @@ class NotificationsController < ApplicationController
   def accept_notification
     @notification = Notification.find(params[:id])
     @notification.update(status: 1)
+    NotifierMailer.welcome(User.first.email, @notification).deliver_now
     redirect_to company_recrutation_path(@notification.recrutation.company.id, @notification.recrutation.id)
   end
 
