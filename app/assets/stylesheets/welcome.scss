@@ -174,3 +174,34 @@ p.copyright {
 .emplo {
   width: 250px;
 }
+
+.alert-alert {
+  font-size: 15px;
+  background-color: red;
+  ul {
+    li {
+      list-style-type: none;
+    }
+  }
+}
+
+.alert-warning {
+  font-size: 15px;
+  background-color: red;
+  ul {
+    li {
+      list-style-type: none;
+    }
+  }
+}
+
+.alert-notice {
+  font-size: 15px;
+  background-color: green;
+  color: white;
+  ul {
+    li {
+      list-style-type: none;
+    }
+  }
+}
