@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :companies do
     resources :recrutations do
       resources :notifications
-    end
+      end
   end
+  get 'accept_notification/:id', to: 'notifications#accept_notification'
+  get 'refuse_notification/:id', to: 'notifications#refuse_notification'
   resources :messages
   devise_for :users, controllers: { registrations: "registrations" }
   resources :jobs
