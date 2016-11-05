@@ -7,21 +7,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <% flash.each do |key, value| %>
-  <div class="alert-show alert alert-<%= key %>">
-    <a href="#" data-dismiss="alert" class="close">×</a>
-    <ul>
-      <li>
-        <%= value %>
-      </li>
-    </ul>
-  </div>
-<% end %>
     <% unless current_user %>
       <%= render partial: "/layouts/nav" %>
     <% else %>
       <%= render partial: "/layouts/nav_logged" %>
     <% end %>
+    <% flash.each do |key, value| %>
+    <div class="alert-show alert alert-<%= key %>">
+      <a href="#" data-dismiss="alert" class="close">×</a>
+      <ul>
+        <li>
+          <%= value %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
     <div class = "container">
       <%= yield %>
     </div>

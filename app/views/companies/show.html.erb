@@ -8,6 +8,7 @@
       <h4> <strong> Adres firmy: </strong> <%= @company.address%>  </h4>
   </blockquote>
   <input id="address" style="display:none;" data-address="<%= @company.address %>"/>
+  <%= link_to "Dodaj ofertę pracy", new_company_recrutation_path(@company.id), class: 'btn btn-primary' %>
 </div>
 <div class="col-md-6">
   <div id="map" style="height: 500px" data-map="<%=@company.map %>"></div> <br>
@@ -15,13 +16,12 @@
   <% @recrutations.each do |r| %>
 <div class="col-md-8 col-md-offset-2 well">
   <div class="col-md-4">
-    <%= link_to r.title, company_recrutation_path(r.company_id, r.id) %><br>
-    <span style="color:green"><%= r.job.name %></span>
+    <span> Stanowisko: </span> <%= link_to r.title, company_recrutation_path(r.company_id, r.id) %>  <br>
+    <span style="color:green"> Rodzaj zatrudnienia: <%= r.job.name %></span>
   </div>
-  <div class="col-md-2 col-md-offset-4"><%= r.salary %> </div>
+  <div class="col-md-2 col-md-offset-4"> Wynagrodzenie: <%= r.salary %> </div>
 </div>
   <% end %>
-<%= link_to "Dodaj ofertę pracy", new_company_recrutation_path(@company.id), class: 'btn btn-primary' %>
 <script src="geo.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL83WfzxmwshCPup5Hq0WGaNECnXpvxM4&callback=initMap">
 </script>
