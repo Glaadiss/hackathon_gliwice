@@ -1,14 +1,23 @@
 <h2> Dane Twojego profilu </h2>
 <hr>
-<strong> <p class ="lead"> Imię: </strong> <%= @user.firstname %> </p>
-<strong> <p class ="lead"> Nazwisko: </strong> <%= @user.lastname %> </p>
-<strong> <p class ="lead"> Email: </strong> <%= @user.email %> </p>
+<div class="col-md-3">
+  <%= image_tag avatar_url(@user, 250) %>
+  <br>
+  <br>
+</div>
+<br>
+<br>
+<div class="col-md-9">
+  <strong> <p class ="lead"> Imię: </strong> <%= @user.firstname %> </p>
+  <strong> <p class ="lead"> Nazwisko: </strong> <%= @user.lastname %> </p>
+  <strong> <p class ="lead"> Email: </strong> <%= @user.email %> </p>
 
-<%= link_to "Edytuj swój profil", edit_user_registration_path(@user), class: 'btn btn-success' %>
+  <%= link_to "Edytuj swój profil", edit_user_registration_path(@user), class: 'btn btn-success' %>
+</div>
 <br>
 <br>
 <% if @user.role == 0 %>
-
+<% unless @notifications.empty? %>
 <table class="table">
   <thead>
     <th>Nazwa firmy</th>
@@ -25,6 +34,7 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 <% end %>
 <br>
 <br>
