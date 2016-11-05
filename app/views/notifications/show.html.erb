@@ -1,10 +1,21 @@
-<% if @notification.recrutation.company.id == current_user.company_id %>
+<div class="row">
+  <div class="jumbotron text-center">
+    <h1><%= @notification.user.full_name %></h1>
+    <h2><%= @notification.recrutation.job.name %>.</h2>
+  </div>
+</div>
+
+<% if @notification.recrutation.company.id == current_user.company_id && @notification.status == 0 %>
     <div class="row">
-      <div class="jumbotron text-center">
-        <h1><%= @notification.user.full_name %></h1>
-        <h2><%= @notification.recrutation.job.name %>.</h2>
+      <div class="col-md-6">
+        <%= link_to "Zaakceptuj zgłoszenie", {controller: 'notifications', action: 'accept_notification', id: @notification.id}, class: 'btn btn-success', style: 'width:100%' %>
+
+      </div>
+      <div class="col-md-6">
+        <%= link_to "Odrzuć zgłoszenie", {controller: 'notifications', action: 'refuse_notification'}, id: @notification.id, class: 'btn btn-danger', style: 'width:100%' %>
       </div>
     </div>
+
 <% elsif current_user.id == @notification.user_id %>
 
 <% end %>
