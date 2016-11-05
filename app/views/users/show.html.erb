@@ -6,6 +6,7 @@
 <%= link_to "Edytuj swój profil", edit_user_registration_path(@user), class: 'btn btn-success' %>
 <br>
 <br>
+<% if @user.role == 0 %>
 <table class="table">
   <thead>
     <th>Nazwa firmy</th>
@@ -22,5 +23,6 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
 <br>
 <br>

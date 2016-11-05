@@ -17,8 +17,9 @@
     <%end %>
   </div>
 </div>
-
+<%= link_to "Zobacz CV", @notification.document.url, target: '_blank' %>
 <% if @notification.recrutation.company.id == current_user.company_id && @notification.status == 0 %>
+
     <div class="row">
       <div class="col-md-6">
         <%= link_to "Zaakceptuj zgłoszenie", {controller: 'notifications', action: 'accept_notification', id: @notification.id}, class: 'btn btn-success', style: 'width:100%' %>

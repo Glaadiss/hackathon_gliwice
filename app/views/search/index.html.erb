@@ -4,6 +4,7 @@
 <table class = "table table-striped">
   <thead>
     <tr>
+      <th> Stanowisko</th>
       <th> Tytuł </th>
       <th> Nazwa firmy </th>
       <th> Wynagrodzenie </th>
@@ -12,6 +13,7 @@
   <tbody>
     <% @recrutations.each do |rec| %>
       <tr>
+        <td> <%= rec.job.name %></td>
         <td> <%= rec.title %> </td>
         <td> <%= rec.company.name %> </td>
         <td> <%= rec.salary %> </td>
