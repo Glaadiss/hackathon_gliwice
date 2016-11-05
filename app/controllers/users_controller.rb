@@ -7,7 +7,6 @@ before_action :authenticate_user!
   def show
     @user = current_user
     @notifications = current_user.notifications.distinct
-
   end
 
 end
