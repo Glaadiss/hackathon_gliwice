@@ -6,6 +6,12 @@
       </div>
     </div>
     <hr>
+    <h4>Stanowisko</h4>
+    <div class="row">
+      <div class="col-md-8">
+        <%= text_field_tag 'job', nil, class:'form-control', placeholder: 'Stanowisko' %>
+      </div>
+    </div>
     <h4>Opis:</h4>
     <div class="row">
       <div class="col-md-8">
@@ -79,7 +85,7 @@
     var new_dependency = String($('.dep').find('.col-md-7').html());
     var new_offer = String($('.off').find('.col-md-7').html());
     var new_nice = String($('.nice').find('.col-md-7').html());
-
+    $('#job').autocomplete({source: <%= raw Job.all.pluck(:name) %>});
     $('#add_dependency').click(function(){
       $('.dep .col-md-7').append( '<br>' + new_dependency);
     });

@@ -22,7 +22,7 @@ class RecrutationsController < ApplicationController
 
   def create
     @recrutation = @company.recrutations.new(recrutations_params)
-    @recrutation.job_id = 1
+    @recrutation.job_id = Job.find_by_name(params[:job]).try(:id)
     if @recrutation.save!
       redirect_to @company
     else
@@ -37,6 +37,6 @@ class RecrutationsController < ApplicationController
   end
 
   def recrutations_params
-    params.require(:recrutation).permit(:job_id, :dependency, :salary, :description, :offer, :nice_have, :additional, :title)
+    params.require(:recrutation).permit(:dependency, :salary, :description, :offer, :nice_have, :additional, :title)
   end
 end
